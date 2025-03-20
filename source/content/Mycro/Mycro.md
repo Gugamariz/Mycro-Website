@@ -63,7 +63,7 @@ Não tem nada de especial aqui, além do capacitor eletrolítico da Nichicon que
 (Vou trocar essa foto por uma melhor no futuro, prometo que ele é bem bonito ;) )
 ## Os sensores
 
-Os sensores talvez sejam a parte mais importante do projeto, sem eles o seu robô não conseguiria fazer nada, portanto é de extrema importância acertar na escolha deles. É importante então lembrar o que um sensor bom deve ser. Um sensor bom tem de ler rapidamente, preciso, não quero ler uma parede da frente quando estou querendo ler uma que esta a minha frente, e um bônus seria ele ser simples de se trabalhar com.
+Os sensores talvez sejam a parte mais importante do projeto, sem eles o seu robô não conseguiria fazer nada, portanto é de extrema importância acertar na escolha deles. É importante então lembrar o que um sensor bom deve ser. Um sensor bom tem de ler rapidamente, preciso, não quero ler uma parede da frente quando estou querendo ler uma que esta a minha direita, e um bônus seria ele ser simples de se trabalhar com.
 
 Levando isso em conta foi decidido fazer um sensor utilizando um LED IR e um fototransistor. O sensor nos testes não foi muito preciso, não tendo leituras consistentes, tendo uma saída muito dependente da quantidade de luz solar no ambiente. Porém teoricamente o sensor deveria funcionar nessas condições e o que faltou foi muito provavelmente uma calibração mais adequada do mesmo no software.
 
@@ -172,6 +172,8 @@ A fabricação foi bem simples, após os componentes e a PCB chegarem foi utiliz
 O projeto mesmo com os problemas citados anteriormente funciona fenomenalmente bem e, considerando que em menos de um mês o projeto do hardware foi finalizado, foi um sucesso bem grande. Eu acredito que esse design é uma ótima inspiração para quem está começando com a categoria Micromouse.
 
 Eu espero que esse artigo/post de blog tenha te dado uma ideia do que levar em consideração quando fazendo um projeto desse tipo.
+
+
 
 ![[Sem título 2.jpg|center|600]]
 
