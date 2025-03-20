@@ -1,4 +1,6 @@
 O Mycro é um projeto de Micromouse simples para a competição da Robochallenge, o hardware funcionou em geral (menos alguns detalhes que serão comentados após). A publicação nesse artigo serve para ajudar pessoas que estão entrando na categoria e querem entrar na categoria com um robô mais simples e fácil de se projetar.
+
+![[Sem título.jpg]]
 ## Power 
 A placa tem basicamente 3 níveis de tensão: A tensão da bateria (que varia de acordo com que ela se descarrega), 5V e 3.3V. O rail de 5V serve para somente diminuir a tensão para o regulador linear, com exceção de um componente que utiliza os 5V. O rail de 3.3V é utilizado para quase todo o resto da placa com exceção da parte de potência que controla os motores que utiliza a tensão da bateria.
 ### Os 5V
@@ -9,6 +11,7 @@ Para regular a tensão foi utilizado um TPS82140, um regulador buck com indutor 
 ![[Pasted image 20250320021239.png]]
 
 O circuito final foi o seguinte: 
+
 ![[Pasted image 20250320021422.png]]
 
 ![[Pasted image 20250320021751.png]]
@@ -56,6 +59,7 @@ Um ultimo detalhe é a chave de desliga e liga e o capacitor de bulk
 Não tem nada de especial aqui, além do capacitor eletrolítico da Nichicon que é minúsculo
 
 ![[Pasted image 20250320025000.png]]
+
 (Vou trocar essa foto por uma melhor no futuro, prometo que ele é bem bonito ;) )
 ## Os sensores
 
@@ -129,6 +133,7 @@ O módulo inicialmente funcionou bem com a ressalva de que era preciso conecta-l
 
 ### Vale mencionar também
 A placa possuí 2 LED´s RGB para debug, no entanto os resistores utilizados no design foram de um valor inicialmente muito pequenos fazendo que o brilho dos LED´s fosse muito forte. Os resistores foram posteriormente trocados por resistores de 1k para eliminar o problema.
+
 ![[Pasted image 20250320035153.png]]
 
 ![[MFG_475~C67062-A0226-A3-03~~6_web(640x640).jpg]]
@@ -150,12 +155,19 @@ Avaliando atualmente o projeto a separação entre a parte de potência da placa
 ![[Pasted image 20250320040008.png]]
 É possível visualizar os 3.3V em amarelo, os 5V na única trilha da camada indo somente para o LED RGB e a tensão da bateria em laranja alimentado os drivers.
 ![[Pasted image 20250320040159.png]]
+
 A camada inferior com seu pequeno número de conexões.
 
+## Fabricação
+A fabricação foi bem simples, após os componentes e a PCB chegarem foi utilizado um stencil e solda em pasta para solda-los. O processo foi rápido e poupou muito trabalho.
+
+![[Sem título 1.jpg]]
 ## Notas finais
 
 O projeto mesmo com os problemas citados anteriormente funciona fenomenalmente bem e, considerando que em menos de um mês o projeto do hardware foi finalizado, foi um sucesso bem grande. Eu acredito que esse design é uma ótima inspiração para quem está começando com a categoria Micromouse.
 
 Eu espero que esse artigo/post de blog tenha te dado uma ideia do que levar em consideração quando fazendo um projeto desse tipo.
 
-Os arquivos do projeto estão no meu github: 
+![[Sem título 2.jpg]]
+
+Os arquivos do projeto estão no meu github: https://github.com/Gugamariz/Mycro/tree/main
