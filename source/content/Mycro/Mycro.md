@@ -154,6 +154,7 @@ A layer superior é onde estão maior parte dos sinais e teve um roteamento bem 
 ![[Pasted image 20250320035816.png|center|500]]
 
 Avaliando atualmente o projeto a separação entre a parte de potência da placa do resto no plano de terra foi desnecessária e pode ate ter mesmo interferido na performance de EMC dela. 
+
 ![[Pasted image 20250320040008.png|center|500]]
 
 É possível visualizar os 3.3V em amarelo, os 5V na única trilha da camada indo somente para o LED RGB e a tensão da bateria em laranja alimentado os drivers.
