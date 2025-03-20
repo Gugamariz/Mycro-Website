@@ -9,6 +9,7 @@ export const sharedPageComponents: SharedLayout = {
   footer: Component.Footer({
     links: {
       "Meu Linkedin": "www.linkedin.com/in/gustavo-mariz-b-de-sousa",
+      "Meu Github": "https://github.com/Gugamariz"
     },
   }),
 }
@@ -27,7 +28,6 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   right: [
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
   ],
 }
 
