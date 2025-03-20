@@ -158,6 +158,7 @@ Avaliando atualmente o projeto a separação entre a parte de potência da placa
 ![[Pasted image 20250320040008.png|center|500]]
 
 É possível visualizar os 3.3V em amarelo, os 5V na única trilha da camada indo somente para o LED RGB e a tensão da bateria em laranja alimentado os drivers.
+
 ![[Pasted image 20250320040159.png|center|500]]
 
 A camada inferior com seu pequeno número de conexões.
