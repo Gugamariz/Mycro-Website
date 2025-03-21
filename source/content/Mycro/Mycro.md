@@ -1,12 +1,12 @@
-O Mycro é um projeto de Micromouse simples para a competição da Robochallenge, o hardware funcionou em geral (menos alguns detalhes que serão comentados após). A publicação nesse artigo serve para ajudar pessoas que estão entrando na categoria e querem entrar na categoria com um robô mais simples e fácil de se projetar.
+O Mycro é um projeto de Micromouse simples para a competição da Robochallenge, o hardware funcionou bem em geral (exceto alguns detalhes que serão comentados posteriormente). A publicação nesse artigo serve para ajudar pessoas que estão entrando na categoria e querem entrar na categoria com um robô mais simples e fácil de se projetar.
 
 ![[Sem título.jpg|center|600]]
 ## Power 
-A placa tem basicamente 3 níveis de tensão: A tensão da bateria (que varia de acordo com que ela se descarrega), 5V e 3.3V. O rail de 5V serve para somente diminuir a tensão para o regulador linear, com exceção de um componente que utiliza os 5V. O rail de 3.3V é utilizado para quase todo o resto da placa com exceção da parte de potência que controla os motores que utiliza a tensão da bateria.
+A placa tem basicamente 3 níveis de tensão: A tensão da bateria (que varia à medida que ela se descarrega), 5V e 3.3V. O rail de 5V serve para somente diminuir a tensão para o regulador linear, com exceção de um componente que utiliza os 5V. O rail de 3.3V é utilizado para quase todo o resto da placa com exceção da parte de potência que controla os motores que utiliza a tensão da bateria.
 ### Os 5V
-Os 5V como comentado anteriormente quase não tem uso, servindo basicamente para garantir que o regulador linear não falhe devido a uma grande potência dissipada.
+Os 5V, como comentado anteriormente, quase não têm uso, servindo basicamente para garantir que o regulador linear não falhe devido a uma grande potência dissipada.
 
-Para regular a tensão foi utilizado um TPS82140, um regulador buck com indutor integrado da Texas Instruments. Ele foi escolhido principalmente para diminuir a complexidade do design e permitir que o projeto fosse terminado mais rapidamente. Além disso um dos benefícios dele por consequencia foi não ocupar tanto espaço na placa, sempre bom ter mais espaço :D.
+Para regular a tensão, foi utilizado um TPS82140, um regulador buck com indutor integrado da Texas Instruments. Ele foi escolhido principalmente para diminuir a complexidade do design e permitir que o projeto fosse terminado mais rapidamente. Além disso um dos benefícios dele por consequência foi não ocupar tanto espaço na placa, sempre bom ter mais espaço :D.
 
 ![[Pasted image 20250320021239.png|center|600]]
 
@@ -16,14 +16,14 @@ O circuito final foi o seguinte:
 
 ![[Pasted image 20250320021751.png|center|450]]
 
-Vale comentar algumas coisas que atualmente eu mudaria. Utilizar um resistor no valor de 52k3 foi extremamente incomodo depois, enquanto ao comprar em um grande distribuidor como a Mouser ou Digikey você conseguiria achar ele facilmente, no Brasil tentar comprar de um local como o Mercado Livre ou outra loja é extremamente difícil (principalmente considerando o encapsulamento 0603 que muitos tem medo pelo tamanho). Nesse caso o ideal teria sido escolher valores diferente para os resistores de feedback ou até mesmo fazer alguma associação de resistores que fosse adequada.
+Vale comentar algumas coisas que atualmente eu mudaria. Utilizar um resistor no valor de 52k3 foi extremamente incômodo depois, enquanto ao comprar em um grande distribuidor como a Mouser ou Digikey é possível encontra-lo facilmente, no Brasil tentar comprar de um local como o Mercado Livre ou outra loja é extremamente difícil (principalmente considerando o encapsulamento 0603 que muitos tem medo pelo tamanho). Nesse caso o ideal teria sido escolher valores diferente para os resistores de feedback ou até mesmo fazer alguma associação de resistores que fosse adequada.
 
 O capacitor de 22u sofreu do mesmo problema, porém pior. Na tensão de operação dele e encapsulamento é extremamente difícil achar um fabricante que faça capacitores com 22u ou mais. O ideal então seria alterar ele para um encapsulamento maior que faria com que fosse muito mais fácil achar um componente adequado.
 
 ### Os 3.3V
-Os 3.3V é provavelmente o rail mais importante da placa, ele alimenta o microcontrolador, IMU, sensores de parede e mais. Considerando então que os sensores de parede poderiam ter suas saídas afetadas por uma variação na sua tensão de alimentação foi decidido utilizar um regulador linear que teria menos ruído comparado com um conversor buck que costuma ter uma quantidade considerável de ripple na sua saída.
+O rail de 3.3V é provavelmente o mais importante da placa, ele alimenta o microcontrolador, IMU, sensores de parede e mais. Considerando então que os sensores de parede poderiam ter suas saídas afetadas por uma variação na sua tensão de alimentação foi decidido utilizar um regulador linear que teria menos ruído comparado com um conversor buck, que costuma ter uma quantidade considerável de ripple na sua saída.
 
-O circuito em si é muito simples, consistindo basicamente de um CI 1117 que você acha em qualquer lugar e os dois capacitores de desacoplamento adequados na sua saída e entrada.
+O circuito em si é muito simples, consistindo basicamente de um CI 1117 que você acha em qualquer lugar e os dois capacitores de desacoplamento na sua saída e entrada.
 
 ![[Pasted image 20250320022739.png|center|450]]
 
@@ -32,19 +32,19 @@ No esquemático foi anotado que caso fosse necessário ainda uma saída com meno
 ![[Pasted image 20250320022910.png|center|450]]
 
 ### A bateria
-A bateria não dimensionada com todo o cuidado, porém levando em conta projetos anteriores que foram observados foi percebido que 300mAh costuma ser mais do que o suficiente. A bateria então foi uma LiPo 2S high voltage (tensão da célula de 4.25V em vez de 4.2V) de 300mAh.
+A bateria não foi dimensionada com muito cuidado, mas, levando em conta projetos anteriores, foi percebido que 300mAh costumam ser mais do que suficientes. A bateria então foi uma LiPo 2S high voltage (tensão da célula de 4.25V em vez de 4.2V) de 300mAh.
 
 Vale lembrar também que uma das principais considerações no projeto é o peso final do robô pois ele determina a sua aceleração máxima então escolher a bateria mais leve possível é essencial.
 
 ![[Pasted image 20250320023335.png|center|400]]
 
 ### Vale comentar também
-Para que houvesse um indicador visual de que as tensões da placa estão adequadas foi utilizado um LED RGB para uma visualização rápida. Um problema que sempre ocorreu em robôs seguidores de linha quando alguém pedia minha ajuda com um problema era que o regulador de tensão falhou e esqueceram de medir a tensão. Com um indicador visual fica mais difícil esquecer.
+Para que houvesse um indicador visual de que as tensões da placa estão adequadas foi utilizado um LED RGB para uma visualização rápida. Um problema que sempre eu sempre observei em robôs seguidores de linha, era o regulador de tensão falhar e isso passar despercebido. Com um indicador visual fica mais difícil esquecer.
 
 ![[Pasted image 20250320023630.png|center|300]]
 
 
-Também Foi adicionado um circuito simples (mesmo que overkill) para medir a tensão da bateria. Ele serviria para que caso fosse necessário para um algoritmo de controle saber a tensão da bateria seria possível saber qual ela era. No fim das contas não foi necessário e o circuito não foi populado na placa.
+Também foi adicionado um circuito simples (mesmo que overkill) para medir a tensão da bateria. Ele serviria para que caso fosse necessário para um algoritmo de controle saber a tensão da bateria seria possível saber qual ela era. No fim das contas não foi necessário e o circuito não foi populado na placa.
 
 ![[Pasted image 20250320024157.png|center|600]]
 
@@ -81,7 +81,7 @@ Os componentes são apoiados em uma estrutura de impressão simples para garanti
 
 ## O IMU
 
-O IMU (Inertial Measurement Unit) que possuí um acelerômetro e um giroscópio no mesmo CI serviria para auxiliar no controle do robô porém devido a um erro de hardware ou software, não foi implementado ainda. O circuito no entanto é bem simples, o CI do LSM6DRX se comunica com o microcontrolador via uma interface SPI, porém devido ao pino de chip select estar permanentemente ativo no hardware talvez isso tenha impedido o IMU de funcionar. No entanto não foi possível testar nenhuma hipótese até o momento.
+O IMU (Inertial Measurement Unit) que possuí um acelerômetro e um giroscópio no mesmo CI serviria para auxiliar no controle do robô porém devido a um erro de hardware ou software, não foi implementado ainda. O circuito no entanto é bem simples, o CI LSM6DRX se comunica com o microcontrolador via uma interface SPI, porém devido ao pino de chip select estar permanentemente ativo no hardware talvez isso tenha impedido o IMU de funcionar. No entanto não foi possível testar nenhuma hipótese até o momento.
 
 ![[Pasted image 20250320031323.png|center|600]]
 
@@ -96,7 +96,7 @@ O circuito dos drivers é bem direto, são dois DRV8251A (um para cada motor) qu
 Assim como no regulador de 5V foram utilizados os capacitores de 22u com encapsulamento 0805, seria ideal utilizar um encapsulamento maior na próxima revisão do hardware para que seja possível compra-los de mais fontes.
 
 ### Os motores
-Os motores também não foram uma escolha muito difícil. Com o fim de evitar complexidade mecânica do projeto foram utilizados motores N20 em que era possível utilizar uma solução já utilizada em robôs seguidores de linha em projetos anteriores. Os encoders são então encaixados no eixo do motor que se estende até a parte traseira do motor. 
+Os motores também não foram uma escolha muito difícil. Com o fim de evitar complexidade mecânica do projeto, foram utilizados motores N20 em que era possível utilizar uma solução já utilizada em robôs seguidores de linha. Os encoders são encaixados no eixo do motor que se estende até a parte traseira do motor. 
 
 ![[12567_9.jpg|center|500]]
 
@@ -109,7 +109,7 @@ A solução atual mesmo que fácil de se montar não é satisfatória consideran
 ![[0J6832.1200.jpg|center|500]]
 
 ## O microcontrolador
-O microcontrolador é o cérebro da placa, ele interage com todos os periféricos mencionados anteriormente e garante que o robô vai completar o trajeto. O MCU escolhido foi o STM32F411 por ter capacidade de processamento mais do que suficiente para o projeto e pelo fácil acesso a placas de desenvolvimento. Além disso vale mencionar que a interface do IDE da ST o stm32CubeIDE foi incrivelmente útil no desenvolvimento do hardware por permitir visualizar facilmente as funcionalidades de cada pino.
+O microcontrolador é o cérebro da placa, ele interage com todos os periféricos mencionados anteriormente e garante que o robô vai completar o trajeto. O MCU escolhido foi o STM32F411, que tem capacidade de processamento mais do que suficiente para o projeto e pelo fácil acesso a placas de desenvolvimento. Além disso vale mencionar que a interface do IDE da ST o stm32CubeIDE foi incrivelmente útil no desenvolvimento do hardware por permitir visualizar facilmente as funcionalidades de cada pino.
 
 Como mencionado anteriormente no projeto são utilizados o ADC, interface SPI e UART e timers do microcontrolador para gerar o PWM e outras tarefas.
 
@@ -169,7 +169,7 @@ A fabricação foi bem simples, após os componentes e a PCB chegarem foi utiliz
 ![[Sem título 1.jpg|center|500]]
 ## Notas finais
 
-O projeto mesmo com os problemas citados anteriormente funciona fenomenalmente bem e, considerando que em menos de um mês o projeto do hardware foi finalizado, foi um sucesso bem grande. Eu acredito que esse design é uma ótima inspiração para quem está começando com a categoria Micromouse.
+O projeto mesmo com os problemas citados anteriormente funciona fenomenalmente bem. Considerando que em menos de um mês o projeto do hardware foi finalizado, foi um sucesso bem grande. Eu acredito que esse design é uma ótima inspiração para quem está começando com a categoria Micromouse.
 
 Eu espero que esse artigo/post de blog tenha te dado uma ideia do que levar em consideração quando fazendo um projeto desse tipo.
 
