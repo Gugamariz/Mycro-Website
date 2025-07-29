@@ -1,5 +1,5 @@
 ---
-Title: Mycro
+title: Mycro
 ---
 O Mycro é um projeto de Micromouse simples para a competição da Robochallenge, o hardware funcionou bem em geral (exceto alguns detalhes que serão comentados posteriormente). A publicação nesse artigo serve para ajudar pessoas que estão entrando na categoria e querem entrar na categoria com um robô mais simples e fácil de se projetar.
 
